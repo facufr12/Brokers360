@@ -31,8 +31,8 @@
     --muted: 0 0% 25%;
     --muted-foreground: 0 0% 60%;
     
-    /* Accent - Purple */
-    --accent: 285 46% 33%;
+    /* Accent - Emerald green */
+    --accent: 160 84% 39%;
     --accent-foreground: 0 0% 100%;
     
     /* Success states */
@@ -54,23 +54,23 @@
     /* Borders and inputs */
     --border: 0 0% 35%;
     --input: 0 0% 28%;
-    --ring: 285 46% 33%;
+    --ring: 160 84% 39%;
     
     --radius: 0.75rem;
     
     /* Sidebar */
     --sidebar-background: 0 0% 20%;
     --sidebar-foreground: 0 0% 90%;
-    --sidebar-primary: 285 46% 33%;
+    --sidebar-primary: 160 84% 39%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 0 0% 30%;
     --sidebar-accent-foreground: 0 0% 98%;
     --sidebar-border: 0 0% 35%;
-    --sidebar-ring: 285 46% 33%;
+    --sidebar-ring: 160 84% 39%;
     
     /* Custom gradient tokens */
     --gradient-card: linear-gradient(135deg, hsl(0 0% 32%) 0%, hsl(0 0% 28%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(285 46% 33%) 0%, hsl(285 46% 40%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 70% 45%) 100%);
     --gradient-info: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 80% 50%) 100%);
     
     /* Shadows */

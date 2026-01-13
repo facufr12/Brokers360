@@ -60,7 +60,7 @@ export default function Dashboard() {
           />
           <StatsCard
             label="Comisiones"
-            value="$100.000"
+            value="$100,000"
             icon={Receipt}
           />
         </div>
