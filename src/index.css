@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Brokers Cober360° Design System */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Dark olive/charcoal background palette */
+    --background: 0 0% 23.5%;
+    --foreground: 0 0% 98%;
+    
+    /* Cards with subtle transparency */
+    --card: 0 0% 30%;
+    --card-foreground: 0 0% 98%;
+    --card-elevated: 0 0% 34%;
+    
+    --popover: 0 0% 28%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Primary - White buttons on dark */
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 15%;
+    
+    /* Secondary - Muted dark cards */
+    --secondary: 0 0% 32%;
+    --secondary-foreground: 0 0% 90%;
+    
+    /* Muted surfaces */
+    --muted: 0 0% 25%;
+    --muted-foreground: 0 0% 60%;
+    
+    /* Accent - Emerald green */
+    --accent: 160 84% 39%;
+    --accent-foreground: 0 0% 100%;
+    
+    /* Success states */
+    --success: 160 84% 39%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Info - Blue accent */
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+    
+    /* Warning - Yellow/Gold */
+    --warning: 45 93% 58%;
+    --warning-foreground: 0 0% 10%;
+    
+    /* Destructive */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Borders and inputs */
+    --border: 0 0% 35%;
+    --input: 0 0% 28%;
+    --ring: 160 84% 39%;
+    
+    --radius: 0.75rem;
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 20%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 160 84% 39%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 30%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 0 0% 35%;
+    --sidebar-ring: 160 84% 39%;
+    
+    /* Custom gradient tokens */
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 32%) 0%, hsl(0 0% 28%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 70% 45%) 100%);
+    --gradient-info: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 80% 50%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px -4px hsla(0, 0%, 0%, 0.3);
+    --shadow-elevated: 0 8px 32px -8px hsla(0, 0%, 0%, 0.4);
+  }
+
+  .dark {
+    /* Same as root - app is dark by default */
+    --background: 0 0% 23.5%;
+    --foreground: 0 0% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+  
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground));
+  }
+}
+
+@layer components {
+  /* Glass card effect */
+  .glass-card {
+    box-shadow: var(--shadow-card);
+  }
+  
+  /* Stats card variant */
+  .stats-card {
+    @apply bg-secondary/60 backdrop-blur-sm border border-border/30 rounded-xl p-4;
+  }
+  
+  /* Feature card with accent border */
+  .feature-card {
+    @apply  border-l-4 border-l-accent border border-border/50 rounded-xl p-4;
+  }
+  
+  /* Progress ring animation */
+  .progress-ring {
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+  }
+  
+  /* Bottom navigation */
+  .bottom-nav {
+    @apply fixed bottom-0 left-0 right-0 bg-card/95 backdrop-blur-md border-t border-border/50 px-4 py-2 safe-area-inset-bottom;
+  }
+  
+  .bottom-nav-item {
+    @apply flex flex-col items-center gap-1 py-2 px-3 rounded-lg text-muted-foreground transition-colors;
+  }
+  
+  .bottom-nav-item.active {
+    @apply text-foreground;
+  }
+  
+  /* Form input styles */
+  .form-input {
+    @apply w-full bg-input border border-border/50 rounded-xl px-4 py-3 text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-accent/50 focus:border-accent transition-all;
+  }
+  
+  /* Badge variants */
+  .badge-accent {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-accent/20 text-accent rounded-full text-sm font-medium;
+  }
+  
+  .badge-info {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-info/20 text-info rounded-full text-sm font-medium;
+  }
+  
+  .badge-warning {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 bg-warning/20 text-warning rounded-full text-sm font-medium;
+  }
+  
+  /* Safe area for mobile */
+  .safe-area-inset-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 0);
+  }
+  
+  .safe-area-inset-top {
+    padding-top: env(safe-area-inset-top, 0);
+  }
+}
+
+@layer utilities {
+  /* Animation utilities */
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.4s ease-out;
+  }
+  
+  .animate-scale-in {
+    animation: scaleIn 0.3s ease-out;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideUp {
+    from { 
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to { 
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes scaleIn {
+    from { 
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    to { 
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+}
